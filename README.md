@@ -4,23 +4,13 @@ Alfred Workflow Currency Exchange. Convert any currency to CNY.
 
 ## API
 
-The free API is from juhe.cn
+The free API is from [jisuapi.com](https://www.jisuapi.com/)
 
 Please apply from here:
-[https://www.juhe.cn/docs/api/id/80](https://www.juhe.cn/docs/api/id/80)
+[https://www.jisuapi.com/api/exchange/](https://www.jisuapi.com/api/exchange/)
 
-Then fill in the appkey in ```CurrencyExchange.php```.
-
-```php
-<?php
-
-class CurrencyExchange
-{
-    // Please fill in appkey here.
-    private $_appKey = "appkey";
-    private $_api = "http://op.juhe.cn/onebox/exchange/currency";
-...
-```
+Then fill in the appkey in Alfred Workflows Environment Variables.
+![app_key](app_key.jpg)
 
 ## Usage
 ```
@@ -41,16 +31,10 @@ Press enter than the result will copy to you clipboard.
 
 Here is the code in workflow editor.
 
-```php
-require_once('CurrencyExchange.php');
-
-$currencyExchange = new CurrencyExchange();
-
-$currencyExchange->caculate("USD", "CNY", {query});
+```shell
+python3 Calculate.py THB CNY $1
 ```
 
-You can convert any currency to another by modify the code of last line, like JPY to USD.
+You can convert any currency to another by modify the Script text field, like THB to CNY.
 
-```
-$currencyExchange->caculate("JPY", "USD", {query});
-```
+![customize](customize.jpg)
